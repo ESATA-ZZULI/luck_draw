@@ -1,0 +1,50 @@
+.btn-container {
+  padding: 10px;
+  margin-top: 140px; }
+  .btn-container .button {
+    width: 200px;
+    height: 60px;
+    position: relative;
+    background: #bfa;
+    margin: 10px auto;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px; }
+    .btn-container .button::before {
+      content: '';
+      width: 0;
+      height: 0;
+      background: #4405f7;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      z-index: 0;
+      transition: width .5s, height .5s; }
+    .btn-container .button::after {
+      content: '';
+      width: 0;
+      height: 0;
+      background: #4405f7;
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      z-index: 0;
+      transition: width .5s, height .5s; }
+    .btn-container .button:hover::before {
+      width: calc(100% + 2px);
+      height: calc(100% + 2px); }
+    .btn-container .button:hover::after {
+      width: calc(100% + 2px);
+      height: calc(100% + 2px); }
+    .btn-container .button .button_content {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      background: #fff;
+      color: red; }
+
+/*# sourceMappingURL=bg-border.css.map */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <link href="bg-border.css" type="text/css" rel="stylesheet">
+    <style>
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            height: 50%;
+        }
+        .zhuanpan{
+            transition-duration: 2s;
+            z-index: 1;
+        }
+        .zhuanpan-logo{
+            position: absolute;
+            top: -11%;
+            right: 38%;
+            z-index: 2;
+        }
+        .font{
+            font-size: 10px;
+            margin-left: 50%;
+            margin-top: 10%;
+            color: #444444;
+        }
+        .zhushi{
+            float: right;
+            margin-right: 30%;
+        }
+        .color-1{
+            background-color: red;
+            width: 20px;
+            height: 20px;
+        }
+        .color-2{
+            background-color: #23f5f5;
+            width: 20px;
+            height: 20px;
+        }
+        .color-3{
+            background-color: #00a706;
+            width: 20px;
+            height: 20px;
+        }
+        .color-4{
+            background-color: #db68b6;
+            width: 20px;
+            height: 20px;
+        }
+        .color-5{
+            background-color: #230de6;
+            width: 20px;
+            height: 20px;
+        }
+        .color-6{
+            background-color: #e8f118;
+            width: 20px;
+            height: 20px;
+        }
+        /*body > div.container > div.font{*/
+        /*    background-color: red;*/
+        /*}*/
+    </style>
+    <script>
+        let timer;
+        let deg = 0
+        function btn_clicked(){
+            console.log(timer)
+            let img = document.querySelector("body > div > img")
+
+            if(!timer){
+                timer = setInterval(function (){
+                    deg = deg + Math.random() * 360 + Math.random() * 118;
+                    img.style.transform = `rotate(${deg}deg)`;
+                }, 100)
+                document.querySelector("body > div > div > div > div").innerHTML = '停止';
+            } else {
+                clearInterval(timer)
+                timer = undefined
+                document.querySelector("body > div > div > div > div").innerHTML = '开始抽奖';
+            }
+        }
+    </script>
+</head>
+<body style="height: 80vh; background-image: url("logo.png")">
+    <div class="container">
+        <img src="47.gif" class="zhuanpan">
+        <img src="46.gif" class="zhuanpan-logo">
+        <div class="btn-container">
+            <div class="button">
+                <div class="button_content"  onclick="btn_clicked()">开始抽奖</div>
+            </div>
+        </div>
+        <div class="font">解释权归郑州轻工业大学电子科技协会所有</div>
+    </div>
+    <div class="zhushi">
+        <div class="color-1"></div> <span> &nbsp;&nbsp; 特等奖</span>
+        <div class="color-2"></div> <span> &nbsp;&nbsp; 一等奖</span>
+        <div class="color-3"></div> <span> &nbsp;&nbsp; 二等奖</span>
+        <div class="color-4"></div> <span> &nbsp;&nbsp; 三等奖</span>
+        <div class="color-5"></div> <span> &nbsp;&nbsp; 再来一次</span>
+        <div class="color-6"></div> <span> &nbsp;&nbsp; 参与奖</span>
+    </div>
+</body>
+</html>
